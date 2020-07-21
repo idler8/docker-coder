@@ -7,14 +7,14 @@
 ## 端口
 内部使用8888端口
 ## 路由
-* POST /webhook/:project
+* POST /webhook/:project  
 项目存在时进行`git pull`拉取，按照Gitee规范验证  
 项目不存在时进行`git clone`克隆，简单验证`req.body.key == config.cloneKey`  
-* POST /upload/:project
+* POST /upload/:project  
 上传文件到项目中，路径`req.body.path`，简单验证`req.body.key == config.uploadKey`  
 * POST 打开`process.env.DEBUG`时增加一个路由 /stop  
 用以快速重启本容器  
-* GET /*
+* GET /*  
 静态查看所有项目文件  
 ## 更新插件
 当`req.query.cmd`存在时将对项目进行插件更新  
